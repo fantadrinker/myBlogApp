@@ -21,9 +21,8 @@ export default function Home({allPostsData}) {
         <title>{siteTitle}</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>Fred Cui, full stack programmer at benchsci</p>
+        <p>Fred Cui, ex-Microsoft full stack developer</p>
         <p>
-          (Text text description) 
           <a href="https://nextjs.org/learn">this is where I learned to build this site</a>
         </p>
       </section>
