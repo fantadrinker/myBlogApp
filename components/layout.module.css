@@ -13,3 +13,60 @@
 .backToHome {
     margin: 3rem 0 0;
 }
+
+.header.animateHeader img {
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-name: icon-shrink;
+}
+
+.header.animateHeader h2 {
+    animation-name: text-show;
+}
+
+.header.animateHeader img.homeHeaderIcon {
+    animation-direction: reverse;
+}
+
+.header.animateHeader h2.homeHeaderTitle {
+    animation-direction: reverse;
+}
+
+.header h2 {
+    margin: 1rem 0;
+    white-space: nowrap;
+}
+
+.header h2.blogHeaderTitle {
+    font-size: 1.5rem;
+    line-height: 1.4;
+}
+
+
+.header h2.homeHeaderTitle {
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+@keyframes icon-shrink {
+    from {
+        width: 144px;
+        height: 144px;
+    }
+
+    to {
+        width: 108px;
+        height: 108px;
+    }
+}
+
+@keyframes text-show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
