@@ -28,13 +28,13 @@ export default function Home({allPostsData}) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMd}>
+      <section data-cy="summary" className={utilStyles.headingMd}>
         <p>Fred Cui, software developer</p>
         <p>
           <a href="https://nextjs.org/learn">this is where I learned to build this site</a>
         </p>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
+      <section data-cy="blogs" className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blogs</h2>
         <ul className={utilStyles.list}>
           {allPostsData.map(({id, date, title}) => (
