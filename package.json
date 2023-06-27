@@ -6,7 +6,8 @@
     "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev",
     "build": "next build",
     "start": "next start",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "e2etest": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\""
   },
   "dependencies": {
     "cross-env": "^7.0.3",
@@ -22,6 +23,7 @@
     "tailwindcss": "^2.1.2"
   },
   "devDependencies": {
-    "cypress": "^12.16.0"
+    "cypress": "^12.16.0",
+    "start-server-and-test": "^2.0.0"
   }
 }
