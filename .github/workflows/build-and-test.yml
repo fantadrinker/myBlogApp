@@ -23,5 +23,7 @@ jobs:
           cache: 'npm'
       - name: Install Dependencies
         run: npm install
+      - name: Debug Print node NODE_OPTIONS
+        run: echo $NODE_OPTIONS
       - name: Run Tests
-        run: npm run e2etest
+        run: unset NODE_OPTIONS && npm run e2etest
