@@ -71,7 +71,7 @@ export default function Layout({ children, home }) {
             )}
             <main>{children}</main>
             {!home && (
-                <div className={styles.backToHome}>
+                <div data-cy="back-to-home" className={styles.backToHome}>
                     <Link href="/">
                         &#x1F519; back to home
                     </Link>
