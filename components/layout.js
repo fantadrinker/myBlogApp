@@ -2,6 +2,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import profileImage from '../public/images/profile2.jpg'
@@ -10,6 +11,16 @@ const name = 'Fred Cui'
 export const siteTitle = 'Blogs'
 
 export default function Layout({ children, home }) {
+    const router = useRouter()
+    const { animateHeader } = router.query
+
+    const linkToHomeWithHeaderAnimation = {
+        pathname: '/',
+        query: {
+            animateHeader: 1
+        }
+    }
+
     return (
         <div className={styles.container}>
             <Head>
@@ -25,41 +36,39 @@ export default function Layout({ children, home }) {
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
-            <header className={styles.header} >
-                {home? (
-                    <>
+            {home? (
+                <header className={animateHeader? `${styles.header} ${styles.animateHeader}`: styles.header} >
+                    <Image
+                        priority
+                        src={profileImage}
+                        className={`${utilStyles.borderCircle} ${styles.homeHeaderIcon}`}
+                        height={144}
+                        width={144}
+                        alt={name}
+                    />
+                    <h2 className={styles.homeHeaderTitle}>
+                        {name}
+                    </h2>
+                </header>
+            ): (
+                <header className={animateHeader? `${styles.header} ${styles.animateHeader}`: styles.header} >
+                    <Link href={linkToHomeWithHeaderAnimation}>
                         <Image 
                             priority
                             src={profileImage}
-                            className={utilStyles.borderCircle}
-                            height={144}
-                            width={144}
+                            className={`${utilStyles.borderCircle} ${styles.blogHeaderIcon}`}
+                            height={108}
+                            width={108}
                             alt={name}
                         />
-                        <h1 className={utilStyles.heading2Xl}>
+                    </Link>
+                    <h2 className={styles.blogHeaderTitle}>
+                        <Link className={utilStyles.colorInherit} href={linkToHomeWithHeaderAnimation}>
                             {name}
-                        </h1>
-                    </>
-                ): (
-                    <>
-                        <Link href="/">
-                            <Image 
-                                priority
-                                src={profileImage}
-                                className={utilStyles.borderCircle}
-                                height={108}
-                                width={108}
-                                alt={name}
-                            />
                         </Link>
-                        <h2 className={utilStyles.headingLg}>
-                            <Link className={utilStyles.colorInherit} href="/">
-                                {name}
-                            </Link>
-                        </h2>
-                    </>
-                )}
-            </header>
+                    </h2>
+                </header>
+            )}
             <main>{children}</main>
             {!home && (
                 <div className={styles.backToHome}>

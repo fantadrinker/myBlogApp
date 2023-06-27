@@ -15,6 +15,14 @@ export async function getStaticProps() {
 }
 
 export default function Home({allPostsData}) {
+  const getPostLink = (id) => {
+    return {
+      query: {
+        animateHeader: 1
+      },
+      pathname: `/posts/${id}`
+    }
+  }
   return (
     <Layout home>
       <Head>
@@ -31,7 +39,7 @@ export default function Home({allPostsData}) {
         <ul className={utilStyles.list}>
           {allPostsData.map(({id, date, title}) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
+              <Link href={getPostLink(id)}>
                 {title}
               </Link>
               <br />
@@ -40,7 +48,6 @@ export default function Home({allPostsData}) {
               </small>
             </li>
           ))}
-          <li key={0}><Link href="/chat" >chat</Link></li>
         </ul>
       </section>
     </Layout>
