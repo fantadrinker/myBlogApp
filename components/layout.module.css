@@ -22,14 +22,15 @@
 }
 
 .header.animateHeader h2 {
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-delay: 0.5s;
     animation-name: text-show;
+    animation-fill-mode: backwards;
 }
 
 .header.animateHeader img.homeHeaderIcon {
-    animation-direction: reverse;
-}
-
-.header.animateHeader h2.homeHeaderTitle {
     animation-direction: reverse;
 }
 
