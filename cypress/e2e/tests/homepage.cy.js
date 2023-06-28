@@ -22,7 +22,9 @@ describe('homepage', () => {
       cy.get('main section[data-cy="blogs"] ul > li a').should('exist') 
     })
 
-    /*it('clicking on blog title should navigate to blog page', () => {
+    /*
+    // TODO: fix this test, runs successfully locally byt fails on CI
+    it('clicking on blog title should navigate to blog page', () => {
       cy.get('main section[data-cy="blogs"] ul > li a').first().click()
       cy.url().should('include', '/posts')
     })*/
