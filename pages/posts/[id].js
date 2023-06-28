@@ -4,6 +4,7 @@ import Layout from '../../components/layout'
 import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import { getAllPostIds, getPostData } from '../../lib/posts'
+import ImageGallery from '../../components/ImageGallery'
 
 export async function getStaticPaths() {
   const paths = getAllPostIds()
@@ -28,17 +29,7 @@ export default function Post({postData}) {
       <title>{postData.title}</title>
     </Head>
     <article>
-      {postData.images && (<div data-cy="images">
-        {postData.images.map((image, index) => {
-          return <Image 
-            key={index} 
-            src={`/images/${image}`} 
-            width={400}
-            height={400}
-            alt={image}
-          />
-        })}
-      </div>)}
+      <ImageGallery images={postData.images} />
       <h1 data-cy="blog-title" className={utilStyles.headingXl}>{postData.title}</h1>
       <div className={utilStyles.lightText}>
         <Date dateString={postData.date} />
