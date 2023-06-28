@@ -12,6 +12,7 @@ export default function Chevron({
     <span 
       onClick={disabled? null: onClick} 
       className={`${classNames} ${styles.chevron} ${directionStyle} ${disabled? styles.disabled: null} bg-gray-800 hover:bg-gray-700`}
+      data-cy={`chvron-${direction}`}
     ></span>
   )
 }

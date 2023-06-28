@@ -7,7 +7,7 @@ export default function ImageGallery({ images }) {
   const [activeSlide, setActiveSlide] = useState(0);
   // probably best to use cdn for image urls here
   return (
-    <div className="h-96 overflow-hidden flex flex-row justify-center items-center">
+    <div data-cy="image-gallery" className="h-96 overflow-hidden flex flex-row justify-center items-center">
       <Chevron
         classNames="mr-2" 
         direction="left" 
