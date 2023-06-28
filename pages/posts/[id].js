@@ -29,7 +29,7 @@ export default function Post({postData}) {
       <title>{postData.title}</title>
     </Head>
     <article>
-      <ImageGallery images={postData.images} />
+      {postData.images && (<ImageGallery images={postData.images} />)}
       <h1 data-cy="blog-title" className={utilStyles.headingXl}>{postData.title}</h1>
       <div className={utilStyles.lightText}>
         <Date dateString={postData.date} />
