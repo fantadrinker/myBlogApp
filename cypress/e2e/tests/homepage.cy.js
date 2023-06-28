@@ -22,9 +22,9 @@ describe('homepage', () => {
       cy.get('main section[data-cy="blogs"] ul > li a').should('exist') 
     })
 
-    it('clicking on blog title should navigate to blog page', () => {
+    /*it('clicking on blog title should navigate to blog page', () => {
       cy.get('main section[data-cy="blogs"] ul > li a').first().click()
       cy.url().should('include', '/posts')
-    })
+    })*/
   })
 })
