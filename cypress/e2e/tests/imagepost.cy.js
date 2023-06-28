@@ -2,7 +2,7 @@
 
 describe('image post page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/posts/images-post')
+    cy.visit('/posts/images-post')
   })
 
   describe('images', () => {
