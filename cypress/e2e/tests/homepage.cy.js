@@ -19,6 +19,7 @@ describe('homepage', () => {
   describe('main', () => {
     it('should contain a section with blog title', () => {
       cy.get('main section[data-cy="blogs"]').contains('Blogs')
+      cy.get('main section[data-cy="blogs"] ul > li a').should('exist') 
     })
 
     it('clicking on blog title should navigate to blog page', () => {
