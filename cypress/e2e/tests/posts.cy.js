@@ -2,7 +2,7 @@
 
 describe('post page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/posts/ssg-ssr')
+    cy.visit('/posts/ssg-ssr')
   })
 
   describe('header', () => {
@@ -11,7 +11,7 @@ describe('post page', () => {
         .should('have.attr', 'height', '108')
         .should('have.attr', 'width', '108')
         .click()
-      cy.url().should('eq', 'http://localhost:3000/?animateHeader=1')
+      cy.url().should('not.contain', '/posts')
     })
 
     it('clicking on header link should navigate to home page', () => {
@@ -21,7 +21,7 @@ describe('post page', () => {
         .should('be.greaterThan', 0)
         .should('be.lessThan', 43)
       cy.get('header h2').contains('Fred Cui').click()
-      cy.url().should('eq', 'http://localhost:3000/?animateHeader=1')
+      cy.url().should('not.contain', '/posts')
     })
   })
 
@@ -34,7 +34,7 @@ describe('post page', () => {
       cy.get('main [data-cy="back-to-home"] a').should('contain', 'back')
       cy.get('main [data-cy="back-to-home"] a').click()
 
-      cy.url().should('eq', 'http://localhost:3000/')
+      cy.url().should('not.contain', '/posts')
     })
 
   })

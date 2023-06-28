@@ -34,4 +34,4 @@ yarn-error.log*
 /cypress/screenshots
 /cypress/downloads
 
-/cypress/e2e/ignore-*
+/cypress/ignore-*

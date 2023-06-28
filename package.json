@@ -8,7 +8,7 @@
     "build": "next build",
     "start": "next start",
     "cypress": "cypress open",
-    "e2etest": "start-server-and-test dev-lite http://localhost:3000 \"cypress run --e2e\""
+    "e2etest": "start-server-and-test dev-lite http://localhost:3000 \"cypress run --e2e --browser chrome\""
   },
   "dependencies": {
     "cross-env": "^7.0.3",
@@ -17,6 +17,7 @@
     "next": "^13.3.1",
     "postcss-flexbugs-fixes": "^5.0.2",
     "postcss-preset-env": "^6.7.0",
+    "ramda": "^0.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark": "^13.0.0",
