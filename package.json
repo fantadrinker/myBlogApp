@@ -6,6 +6,7 @@
     "dev": "cross-env NODE_OPTIONS='--openssl-legacy-provider' next dev",
     "dev-lite": "next dev",
     "build": "next build",
+    "build-prod": "NODE_ENV=production next build",
     "start": "next start",
     "cypress": "cypress open",
     "e2etest": "start-server-and-test dev-lite http://localhost:3000 \"cypress run --e2e --browser chrome\""
