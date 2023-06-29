@@ -19,7 +19,7 @@ export default function ImageGallery({ images }) {
         return (
           <div key={index} className={index === activeSlide? '': 'hidden'}>
             <Image
-              src={`${process.env.NODE_ENV === "production"? "myBlogApp": ""}/images/${image}`}
+              src={`${process.env.NODE_ENV === "production"? "/myBlogApp": ""}/images/${image}`}
               width={400}
               height={400}
               alt={image}
