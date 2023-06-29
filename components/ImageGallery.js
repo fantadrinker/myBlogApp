@@ -19,10 +19,11 @@ export default function ImageGallery({ images }) {
         return (
           <div key={index} className={index === activeSlide? '': 'hidden'}>
             <Image
-              src={`/images/${image}`}
+              src={image}
               width={400}
               height={400}
               alt={image}
+              unoptimized
             />
           </div>
         );
