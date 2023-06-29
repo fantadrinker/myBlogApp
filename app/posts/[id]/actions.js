@@ -31,7 +31,9 @@ export async function getPostData(id) {
   return {
     id,
     contentHtml,
-    images: images.map(url => `${process.env.S3_IMAGES_BASE_URL}${url}`),
+    images: images?.map(url => 
+      `${process.env.S3_IMAGES_BASE_URL}${url}`
+    ),
     title,
     date
   }

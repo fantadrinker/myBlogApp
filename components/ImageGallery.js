@@ -23,7 +23,7 @@ export default function ImageGallery({ images }) {
               width={400}
               height={400}
               alt={image}
-              unoptimized={true}
+              unoptimized
             />
           </div>
         );

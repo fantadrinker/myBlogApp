@@ -40,7 +40,7 @@ export default function Layout({ children, home }) {
             {home? (
                 <header className={animateHeader? `${styles.header} ${styles.animateHeader}`: styles.header} >
                     <Image
-                        priority
+                        unoptimized
                         src={profileImage}
                         className={`${utilStyles.borderCircle} ${styles.homeHeaderIcon}`}
                         height={144}
@@ -55,7 +55,7 @@ export default function Layout({ children, home }) {
                 <header className={animateHeader? `${styles.header} ${styles.animateHeader}`: styles.header} >
                     <Link href="/">
                         <Image 
-                            priority
+                            unoptimized
                             src={profileImage}
                             className={`${utilStyles.borderCircle} ${styles.blogHeaderIcon}`}
                             height={108}
