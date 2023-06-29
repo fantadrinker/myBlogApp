@@ -1,7 +1,7 @@
 // next.config.js
 
 module.exports = {
-  baseDir: 'myBlogApp',
+  basePath: '/myBlogApp',
   output: 'export',
   images: {
     unoptimized: true
