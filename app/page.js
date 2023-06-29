@@ -22,9 +22,18 @@ export default function Home() {
     <Layout home>
       <section data-cy="summary" className={utilStyles.headingMd}>
         <p>Fred Cui, software developer</p>
-        <p>
-          <a href="https://nextjs.org/learn">this is where I learned to build this site</a>
-        </p>
+        <ul>
+          <li>
+            <a href="https://nextjs.org/learn">
+              this is where I learned to build this site
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/fantadrinker/myBlogApp">
+              GitHub Link to this Project
+            </a>
+          </li>
+        </ul>
       </section>
       <section data-cy="blogs" className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blogs</h2>
