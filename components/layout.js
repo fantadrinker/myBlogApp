@@ -53,7 +53,7 @@ export default function Layout({ children, home }) {
                 </header>
             ): (
                 <header className={animateHeader? `${styles.header} ${styles.animateHeader}`: styles.header} >
-                    <Link href={linkToHomeWithHeaderAnimation}>
+                    <Link href="/">
                         <Image 
                             priority
                             src={profileImage}
@@ -64,7 +64,7 @@ export default function Layout({ children, home }) {
                         />
                     </Link>
                     <h2 className={styles.blogHeaderTitle}>
-                        <Link className={utilStyles.colorInherit} href={linkToHomeWithHeaderAnimation}>
+                        <Link className={utilStyles.colorInherit} href="/">
                             {name}
                         </Link>
                     </h2>
