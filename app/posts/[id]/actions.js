@@ -11,18 +11,29 @@ export async function getPostData(id) {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
 
   // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents)
+  const {
+    content,
+    data
+  } = matter(fileContents)
 
   const processedContent = await remark()
       .use(html)
-      .process(matterResult.content)
+      .process(content)
   const contentHtml = processedContent.toString()
+
+  const {
+    images,
+    title,
+    date
+  } = data
 
   // Combine the data with the id
   return {
     id,
     contentHtml,
-    ...matterResult.data
+    images: images.map(url => `${process.env.S3_IMAGES_BASE_URL}${url}`),
+    title,
+    date
   }
 }
 

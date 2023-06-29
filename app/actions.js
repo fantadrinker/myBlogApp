@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import { and, has } from 'ramda'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -15,7 +16,7 @@ export function getSortedPostsData() {
             id,
             ...matterResult.data
         }
-    })
+    }).filter(has('date'))
 
     return allPostsData.sort(({date: a}, {date: b}) => {
         if(a < b) {
