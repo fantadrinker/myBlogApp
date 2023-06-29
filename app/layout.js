@@ -9,9 +9,11 @@ const roboto = Roboto_Slab({
 export default function RootLayout({ children }) {
     return (
       <html lang="en">
-        <main className={roboto.className}>
-          {children}
-        </main>
+        <body>
+          <main className={roboto.className}>
+            {children}
+          </main>
+        </body>
       </html>
     )
 }

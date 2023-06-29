@@ -15,7 +15,7 @@ export default function Home() {
       query: {
         animateHeader: 1
       },
-      pathname: `/posts-new/${id}`
+      pathname: `/posts/${id}`
     }
   }
   return (
