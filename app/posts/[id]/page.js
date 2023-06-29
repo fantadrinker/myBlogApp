@@ -1,8 +1,12 @@
 import Layout from '../../../components/layout'
 import Date from '../../../components/date'
 import utilStyles from '../../../styles/utils.module.css'
-import { getPostData } from './actions'
+import { getAllPostIds, getPostData } from './actions'
 import ImageGallery from '../../../components/ImageGallery'
+
+export async function generateStaticParams() {
+  return getAllPostIds()
+}
 
 export async function generateMetadata({ params }) {
   return {
