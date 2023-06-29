@@ -35,3 +35,7 @@ yarn-error.log*
 /cypress/downloads
 
 /cypress/ignore-*
+
+# app router migration
+
+/pages-dep

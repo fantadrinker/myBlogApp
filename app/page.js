@@ -1,20 +1,15 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import Date from '../components/date'
-import Layout, { siteTitle } from '../components/layout'
+import Layout from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
+import { getSortedPostsData } from './actions'
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
-    }
-  }
+export const metadata = {
+  title: 'Blogs'
 }
 
-export default function Home({allPostsData}) {
+export default function Home() {
+  const allPostsData = getSortedPostsData()
   const getPostLink = (id) => {
     return {
       query: {
@@ -25,9 +20,6 @@ export default function Home({allPostsData}) {
   }
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
       <section data-cy="summary" className={utilStyles.headingMd}>
         <p>Fred Cui, software developer</p>
         <p>
@@ -53,5 +45,3 @@ export default function Home({allPostsData}) {
     </Layout>
   )
 }
-
-
