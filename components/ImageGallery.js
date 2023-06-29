@@ -1,3 +1,4 @@
+'use client'
 import Image from "next/image";
 import { add } from "ramda"
 import { useState } from "react";

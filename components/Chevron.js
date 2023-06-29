@@ -1,3 +1,4 @@
+'use client'
 import styles from './Chevron.module.css'
 
 export default function Chevron({

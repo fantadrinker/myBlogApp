@@ -1,19 +1,20 @@
-
+'use client'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
+import {useSearchParams} from 'next/navigation'
 import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import profileImage from '../public/images/profile2.jpg'
 
 const name = 'Fred Cui'
-export const siteTitle = 'Blogs'
+
+const siteTitle = 'Blogs'
 
 export default function Layout({ children, home }) {
-    const router = useRouter()
-    const { animateHeader } = router.query
+    const searchParams = useSearchParams()
 
+    const animateHeader = searchParams.get('animateHeader')
     const linkToHomeWithHeaderAnimation = {
         pathname: '/',
         query: {
