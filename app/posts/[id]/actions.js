@@ -30,8 +30,6 @@ export async function getPostData(id) {
 export function getAllPostIds() {
   const fileNames = fs.readdirSync(postsDirectory)
   return fileNames.map(fileName => ({
-      params: {
-          id: fileName.replace(/\.md$/, '')
-      }
+    id: fileName.replace(/\.md$/, '')
   }))
 }
