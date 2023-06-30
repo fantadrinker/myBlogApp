@@ -7,6 +7,7 @@ describe('post page', () => {
 
   describe('header', () => {
     it('clicking on header image should navigate to home page', () => {
+      cy.wait(1000)
       cy.get('header img')
         .should('have.attr', 'height', '108')
         .should('have.attr', 'width', '108')
@@ -30,9 +31,10 @@ describe('post page', () => {
       cy.get('main').get('h1[data-cy="blog-title"]').should('exist')
     })
 
-    it('should contain a back button', () => {
-      cy.get('main [data-cy="back-to-home"] a').should('contain', 'back')
-      cy.get('main [data-cy="back-to-home"] a').click()
+    it('should contain a back button in footer', () => {
+      cy.get('footer[data-cy="back-to-home"] a')
+        .should('contain', 'back')
+        .click()
 
       cy.url().should('not.contain', '/posts')
     })

@@ -12,13 +12,27 @@ export default function Header() {
   const home = pathname === '/'
   return (
     <header className={ `${styles.header} ${styles.animateHeader}`} >
-      <Image unoptimized
-        src={profileImage}
-        className={`${utilStyles.borderCircle} ${home? styles.homeHeaderIcon: styles.blogHeaderIcon}`}
-        height={home? 144: 108}
-        width={home? 144: 108}
-        alt={name}
-      />
+      {home? (
+        <Image 
+          unoptimized
+          src={profileImage}
+          className={`${utilStyles.borderCircle} ${home? styles.homeHeaderIcon: styles.blogHeaderIcon}`}
+          height={144}
+          width={144}
+          alt={name}
+        /> 
+      ): (
+        <Link href="/">
+          <Image 
+            unoptimized
+            src={profileImage}
+            className={`${utilStyles.borderCircle} ${home? styles.homeHeaderIcon: styles.blogHeaderIcon}`}
+            height={108}
+            width={108}
+            alt={name}
+          />  
+        </Link>
+      )}
       <h2 className={home? styles.homeHeaderTitle: styles.blogHeaderTitle}>
         {home? name: (
           <Link href="/" className="text-inherit">
