@@ -20,7 +20,10 @@ export default function Header() {
         alt={name}
       />
       <h2 className={home? styles.homeHeaderTitle: styles.blogHeaderTitle}>
-        {home? name: (<Link href="/">{name}</Link>)}
+        {home? name: (
+          <Link href="/" className="text-inherit">
+            {name}
+          </Link>)}
       </h2>
     </header>
   )
