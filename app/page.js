@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Date from '../components/date'
-import Layout from '../components/layout'
 import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from './actions'
 
@@ -10,16 +9,9 @@ export const metadata = {
 
 export default function Home() {
   const allPostsData = getSortedPostsData()
-  const getPostLink = (id) => {
-    return {
-      query: {
-        animateHeader: 1
-      },
-      pathname: `/posts/${id}`
-    }
-  }
+
   return (
-    <Layout home>
+    <>
       <section data-cy="summary" className={utilStyles.headingMd}>
         <p>Fred Cui, software developer</p>
         <ul>
@@ -40,7 +32,7 @@ export default function Home() {
         <ul className={utilStyles.list}>
           {allPostsData.map(({id, date, title}) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={getPostLink(id)}>
+              <Link href={`/posts/${id}`}>
                 {title}
               </Link>
               <br />
@@ -51,6 +43,6 @@ export default function Home() {
           ))}
         </ul>
       </section>
-    </Layout>
+    </>
   )
 }

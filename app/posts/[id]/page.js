@@ -1,10 +1,9 @@
-import Layout from '../../../components/layout'
 import Date from '../../../components/date'
 import utilStyles from '../../../styles/utils.module.css'
 import { getAllPostIds, getPostData } from './actions'
 import ImageGallery from '../../../components/ImageGallery'
 
-export async function generateStaticParams() {
+export async function generateStaticPaths() {
   return getAllPostIds()
 }
 
@@ -17,7 +16,7 @@ export async function generateMetadata({ params }) {
 export default async function Post({ params }) {
   const postData = await getPostData(params.id)
 
-  return (<Layout>
+  return (<>
     <article>
       {postData.images && (<ImageGallery images={postData.images} />)}
       <h1 data-cy="blog-title" className={utilStyles.headingXl}>{postData.title}</h1>
@@ -26,5 +25,5 @@ export default async function Post({ params }) {
       </div>
     </article>
     <div dangerouslySetInnerHTML={{__html: postData.contentHtml }} />
-  </Layout>)
+  </>)
 }
