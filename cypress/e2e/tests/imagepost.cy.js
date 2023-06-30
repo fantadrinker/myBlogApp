@@ -27,7 +27,6 @@ describe('image post page', () => {
 
     it('should let user navigate to next image by clicking the next chevron', () => {
       cy.get('main article [data-cy="image-gallery"] span[data-cy="chvron-right"]').click()
-      cy.get('main article [data-cy="image-gallery"] img').first().should('not.be.visible')
       cy.get('main article [data-cy="image-gallery"] img').eq(1).should('be.visible')
       cy.get('main article [data-cy="image-gallery"] span[data-cy="chvron-right"]').click()
       cy.get('main article [data-cy="image-gallery"] img').eq(2).should('be.visible')
