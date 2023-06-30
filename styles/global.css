@@ -12,6 +12,12 @@ body {
   font-size: 18px;
 }
 
+body > div {
+  max-width: 36rem;
+  padding: 0 1rem;
+  margin: 3rem auto 6rem;
+}
+
 * {
   box-sizing: border-box;
 }
