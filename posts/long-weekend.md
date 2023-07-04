@@ -16,14 +16,22 @@ shore of SFU on Sunday.
 The hike was more tiring than I expected, might be because we took a new route that 
 climbs to a peak to get to the bluff. The view was great, and here are the photos:
 
-![first-image]()
+![1-image](https://blog-images-1.s3-us-west-2.amazonaws.com/eagle_bluff_1.jpeg)
 
-![second-image]()
+![2-image](https://blog-images-1.s3-us-west-2.amazonaws.com/eagle_bluff_2.jpeg)
+
+![3-image](https://blog-images-1.s3-us-west-2.amazonaws.com/eagle_bluff_3.jpeg)
+
+![4-image](https://blog-images-1.s3-us-west-2.amazonaws.com/eagle_bluff_4.jpeg)
+
+![5-image](https://blog-images-1.s3-us-west-2.amazonaws.com/eagle_bluff_5.jpeg)
+
+![6-image](https://blog-images-1.s3-us-west-2.amazonaws.com/eagle_bluff_6.jpeg)
+
+![7-image](https://blog-images-1.s3-us-west-2.amazonaws.com/eagle_bluff_7.jpeg)
 
 Then on Sunday we went to barnet marine park to paddleboard. The goal originally was to 
 paddle to deep cove beach, but we got too tired at belcarra beach and decided to turn back
-
-![original-route]()
 
 The wind also got heavier on the way back, and we noticed the paddleboard got deflated a little
 so it was really rough paddling back.

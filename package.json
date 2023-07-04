@@ -10,7 +10,7 @@
     "start": "next start",
     "cypress": "cypress open",
     "e2etest": "start-server-and-test dev-lite http://localhost:3000 \"cypress run --e2e --browser chrome\"",
-    "uploadImages": "./scripts/uploadImages.sh"
+    "uploadImages": "./scripts/syncImages.sh"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
