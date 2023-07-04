@@ -7,7 +7,6 @@ describe('post page', () => {
 
   describe('header', () => {
     it('clicking on header image should navigate to home page', () => {
-      cy.wait(1000)
       cy.get('header img')
         .should('have.attr', 'height', '108')
         .should('have.attr', 'width', '108')
