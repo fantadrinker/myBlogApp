@@ -10,15 +10,22 @@ const name = 'Fred Cui'
 export default function Header() {
   const pathname = usePathname()
   const home = pathname === '/'
+  const imageElement = (
+    <Image unoptimized
+      src={profileImage}
+      className={`${utilStyles.borderCircle} ${home? styles.homeHeaderIcon: styles.blogHeaderIcon}`}
+      height={home? 144: 108}
+      width={home? 144: 108}
+      alt={name}
+    />
+  )
   return (
     <header className={ `${styles.header} ${styles.animateHeader} border-b-2 mb-2`} >
-      <Image unoptimized
-        src={profileImage}
-        className={`${utilStyles.borderCircle} ${home? styles.homeHeaderIcon: styles.blogHeaderIcon}`}
-        height={home? 144: 108}
-        width={home? 144: 108}
-        alt={name}
-      />
+      {home? imageElement: (
+        <Link href="/" className="text-inherit">
+          {imageElement}
+        </Link>
+      )}
       <h2 className={home? styles.homeHeaderTitle: styles.blogHeaderTitle}>
         {home? name: (
           <Link href="/" className="text-inherit">
