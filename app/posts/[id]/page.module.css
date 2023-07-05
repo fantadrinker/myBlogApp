@@ -3,3 +3,18 @@
   margin: revert;
   padding: revert;
 }
+
+.fmtblk pre {
+  margin: revert;
+  background-color: gray;
+  padding: 10px 20px;
+  border-radius: 6px;
+  display: block;
+  overflow-x: scroll;
+}
+
+@media (prefers-color-scheme: dark) {
+  .fmtblk pre {
+    background-color: black;
+  }
+}
