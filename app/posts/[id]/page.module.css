@@ -1,0 +1,5 @@
+.fmtblk ol {
+  list-style-type: auto;
+  margin: revert;
+  padding: revert;
+}

@@ -1,5 +1,6 @@
 import Date from '../../../components/date'
 import utilStyles from '../../../styles/utils.module.css'
+import styles from './page.module.css'
 import { getAllPostIds, getPostData } from './actions'
 import ImageGallery from '../../../components/ImageGallery'
 
@@ -24,6 +25,6 @@ export default async function Post({ params }) {
         <Date dateString={postData.date} />
       </div>
     </article>
-    <div dangerouslySetInnerHTML={{__html: postData.contentHtml }} />
+    <div className={styles.fmtblk} dangerouslySetInnerHTML={{__html: postData.contentHtml }} />
   </>)
 }

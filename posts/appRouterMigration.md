@@ -13,8 +13,9 @@ workflow I have set up before. After researching and trying out, I fixed the iss
 
 1. It no longer build static site by default, I have to add the following line to my nextjs config.
 
-    next.config.js
-    ```
+    
+    ```javascript
+    // next.config.js
     module.exports = {
       output: 'export',
       experimental: {
@@ -26,8 +27,8 @@ workflow I have set up before. After researching and trying out, I fixed the iss
 
 2. step 1 caused usages of `next/image` to throw error, so I needed to either revert the `output: 'export'` line or add an additional line to next config
 
-    next.config.js
-    ```
+    ```javascript
+    // next.config.js
     module.exports = {
       ...
       images: {
@@ -38,26 +39,26 @@ workflow I have set up before. After researching and trying out, I fixed the iss
 
 3. step 2 then caused images to not show, then I found out that I haven't updated `basePath` in `next.config.js`, so I added environment variable to dynamically set basepath (on github pages it's served on `/<repo_name>` relative path but locally we want it on root)
 
-    next.config.js
-    ```
+    ```javascript
+    // next.config.js
     module.exports = {
       ...
       basePath: process.evn.BASE_PATH
     }
     ```
 
-    .env.development
     ```
+    # .env.development
     BASE_PATH=""
     ```
 
-    .env.production
     ```
+    # .env.production
     BASE_PATH=/myBlogApp
     ```
 
-    nextjs.yml (gh page action)
-    ```
+    ```yaml
+    # .github/actions/nextjs.yml
     ...
     - name: Build with Next.js
       run: npm run build-prod 
@@ -67,12 +68,14 @@ workflow I have set up before. After researching and trying out, I fixed the iss
 4. according to nextjs doc although I specified basePath, for images to work I still need to add the base path value in the image's `src`.
 So I did this
 
-    ```
+    ```jsx
+    // Component.jsx
     <Image
       ...
       src={`${process.env.NODE_ENV === "production"? "/myBlogApp": ""}/images/${image}`}
     />
     ```
+    
     I did this instead of using `process.env.BASE_PATH` because client component doesn't seem to recognize environment variables set in `.env*` files.
 
 It worked!
