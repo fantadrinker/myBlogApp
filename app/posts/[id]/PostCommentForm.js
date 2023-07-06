@@ -6,7 +6,6 @@ function PostCommentForm(props) {
   const commentArea = useRef(null)
   const handleSubmitComment = async (event) => {
     event.preventDefault()
-    console.log(111, event)
     const comment = commentArea.current.value
     await fetch(`/api/comment`, {
       method: 'POST',
