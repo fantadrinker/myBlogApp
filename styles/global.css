@@ -36,6 +36,20 @@ img {
   display: block;
 }
 
+section:not(:last-child) {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid; 
+}
+
+form input[type=submit], button {
+  background: #0070f3;
+  color: #fff;
+  border: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
 @media (prefers-color-scheme: dark) {
   body {
     background: #1A1A1A;

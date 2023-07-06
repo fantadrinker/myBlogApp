@@ -13,6 +13,11 @@
   overflow-x: scroll;
 }
 
+section#comments form textarea {
+  width: 60%;
+  height: 100px;
+}
+
 @media (prefers-color-scheme: dark) {
   .fmtblk pre {
     background-color: black;

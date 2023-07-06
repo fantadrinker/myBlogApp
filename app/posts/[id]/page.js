@@ -1,8 +1,10 @@
 import Date from '../../../components/date'
 import utilStyles from '../../../styles/utils.module.css'
 import styles from './page.module.css'
-import { getAllPostIds, getPostData, getAllComments } from './actions'
+import { getAllPostIds, getPostData, getAllComments  } from './actions'
 import ImageGallery from '../../../components/ImageGallery'
+import { isEmpty } from 'ramda'
+import PostCommentForm from './PostCommentForm'
 
 export async function generateStaticPaths() {
   return getAllPostIds()
@@ -17,15 +19,34 @@ export async function generateMetadata({ params }) {
 export default async function Post({ params }) {
   const postData = await getPostData(params.id)
   const comments = await getAllComments()
-  console.log(111, comments)
+
   return (<>
-    <article>
-      {postData.images && (<ImageGallery images={postData.images} />)}
-      <h1 data-cy="blog-title" className={utilStyles.headingXl}>{postData.title}</h1>
-      <div className={utilStyles.lightText}>
-        <Date dateString={postData.date} />
-      </div>
-    </article>
-    <div className={styles.fmtblk} dangerouslySetInnerHTML={{__html: postData.contentHtml }} />
+    <section id="post">
+      <article>
+        {postData.images && (<ImageGallery images={postData.images} />)}
+        <h1 data-cy="blog-title" className={utilStyles.headingXl}>{postData.title}</h1>
+        <div className={utilStyles.lightText}>
+          <Date dateString={postData.date} />
+        </div>
+      </article>
+      <div className={styles.fmtblk} dangerouslySetInnerHTML={{__html: postData.contentHtml }} />
+    </section>
+    <section id="comments">
+      <PostCommentForm postId={params.id} />
+      {!isEmpty(comments) && (<>
+        <h2>Comments</h2>
+        <ul>
+          {comments.map(({
+            comment,
+            author
+          }, index) => (
+            <li key={`comment_${index}`}>
+              <p>{comment}</p>
+              <p>{author}</p>
+            </li>
+          ))}
+        </ul>
+      </>)}
+    </section>
   </>)
 }
