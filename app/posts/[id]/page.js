@@ -39,10 +39,9 @@ export default async function Post({ params }) {
           {comments.map(({
             comment,
             author
-          }, index) => (
-            <li key={`comment_${index}`}>
-              <p>{comment}</p>
-              <p>{author}</p>
+          }, index) => comment && author && (
+            <li key={`comment_${index}`} className="pt-2">
+              <p>{comment} <span className="float-right text-sm">- {author}</span></p>
             </li>
           ))}
         </ul>
