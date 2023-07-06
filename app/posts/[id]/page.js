@@ -18,7 +18,7 @@ export async function generateMetadata({ params }) {
 
 export default async function Post({ params }) {
   const postData = await getPostData(params.id)
-  const comments = await getAllComments()
+  const comments = await getAllComments(params.id)
 
   return (<>
     <section id="post">
