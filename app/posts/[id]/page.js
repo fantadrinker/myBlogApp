@@ -1,7 +1,7 @@
 import Date from '../../../components/date'
 import utilStyles from '../../../styles/utils.module.css'
 import styles from './page.module.css'
-import { getAllPostIds, getPostData } from './actions'
+import { getAllPostIds, getPostData, getAllComments } from './actions'
 import ImageGallery from '../../../components/ImageGallery'
 
 export async function generateStaticPaths() {
@@ -16,7 +16,8 @@ export async function generateMetadata({ params }) {
 
 export default async function Post({ params }) {
   const postData = await getPostData(params.id)
-
+  const comments = await getAllComments()
+  console.log(111, comments)
   return (<>
     <article>
       {postData.images && (<ImageGallery images={postData.images} />)}
