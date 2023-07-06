@@ -3,7 +3,8 @@ module.exports = {
     content: [
       // Use *.tsx if using TypeScript
       './pages/**/*.js',
-      './components/**/*.js'
+      './components/**/*.js',
+      './app/**/*.js'
     ]
     // ...
   }

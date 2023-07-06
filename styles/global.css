@@ -37,6 +37,7 @@ img {
 }
 
 section:not(:last-child) {
+  padding-bottom: 2rem;
   margin-bottom: 2rem;
   border-bottom: 1px solid; 
 }
