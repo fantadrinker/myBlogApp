@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Date from '../components/date'
-import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from './actions'
 
 export const metadata = {
@@ -12,7 +11,7 @@ export default function Home() {
 
   return (
     <>
-      <section data-cy="summary" className={utilStyles.headingMd}>
+      <section data-cy="summary" className="text-lg">
         <p>Fred Cui, software developer</p>
         <ul>
           <li>
@@ -27,16 +26,16 @@ export default function Home() {
           </li>
         </ul>
       </section>
-      <section data-cy="blogs" className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blogs</h2>
-        <ul className={utilStyles.list}>
+      <section data-cy="blogs" className="text-lg pt-0">
+        <h2 className="text-xl my-4">Blogs</h2>
+        <ul className="list-none p-0 m-0">
           {allPostsData.map(({id, date, title}) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li className="mb-5" key={id}>
               <Link href={`/posts/${id}`}>
                 {title}
               </Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small className="text-neutral-500">
                 <Date dateString={date} />
               </small>
             </li>
