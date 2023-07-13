@@ -36,3 +36,7 @@ to include them.
 Then I went through the header, footer, nav, and article
 elements, I think it's a good idea to style them instead 
 of divs with class tags.
+
+This is the stackblitz example I tried
+
+https://stackblitz.com/edit/web-platform-ebqfd7?file=index.html
