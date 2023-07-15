@@ -18,8 +18,8 @@ function PostCommentForm(props) {
     event.target.comment.value = ''
   }
   return (
-    <form className="flex flex-row items-end" onSubmit={handleSubmitComment}>
-      <textarea id="comment" name="comment" className="px-2 py-1 w-2/3 h-20 rounded-md bg-slate-700" ref={commentArea} ></textarea>
+    <form className={`flex ${props.compact? 'flex-col': 'flex-row'} items-end`} onSubmit={handleSubmitComment}>
+      <textarea id="comment" name="comment" className={`px-2 py-1 ${props.compact? 'w-full': 'w-2/3'} h-20 rounded-md bg-slate-700`} ref={commentArea} ></textarea>
       <input type="submit" value="Post Comment" className="ml-2 bg-cyan-700 text-xs" />
     </form>
   )
