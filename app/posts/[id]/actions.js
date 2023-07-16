@@ -3,8 +3,6 @@ import path from 'path'
 import matter from 'gray-matter'
 import remark from 'remark'
 import html from 'remark-html'
-import { collection, getDocs, addDoc, where, query } from 'firebase/firestore'
-import db from '../../../lib/firestore'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -50,16 +48,5 @@ export function getAllPostIds() {
 }
 
 export async function getAllComments(id) {
-  const queryByPost = query(collection(db, 'comments'), where('postId', '==', id))
-  const querySnapshots = await getDocs(queryByPost)
-  return querySnapshots.docs.map(doc => doc.data())
-}
-
-export async function postComment(postId, author, comment) {
-  const docRef = await addDoc(collection(db, 'comments'), {
-    author,
-    comment,
-    postId,
-  })
-  return docRef.id
+  return []
 }
