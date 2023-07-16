@@ -1,4 +1,3 @@
-import { collection, addDoc } from 'firebase/firestore'
 
 export async function POST(request) {
   const { postId, author, comment } = await request.json()
