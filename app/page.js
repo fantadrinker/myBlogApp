@@ -10,7 +10,7 @@ export default function Home() {
   const allPostsData = getSortedPostsData()
 
   return (
-    <>
+    <main className="max-w-[36rem]">
       <section data-cy="summary" className="text-lg">
         <p>Fred Cui, software developer</p>
         <ul>
@@ -42,6 +42,6 @@ export default function Home() {
           ))}
         </ul>
       </section>
-    </>
+    </main>
   )
 }

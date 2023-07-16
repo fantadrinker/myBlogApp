@@ -4,7 +4,7 @@ import styles from './page.module.css'
 import { getAllPostIds, getPostData, getAllComments  } from './actions'
 import ImageGallery from '../../../components/ImageGallery'
 import { isEmpty } from 'ramda'
-import PostCommentForm from './PostCommentForm'
+import PostCommentForm from '../../../components/PostCommentForm'
 
 export async function generateStaticPaths() {
   return getAllPostIds()

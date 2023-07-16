@@ -12,7 +12,7 @@ body {
   font-size: 18px;
 }
 
-body > div {
+body > main {
   max-width: 36rem;
   padding: 0 1rem;
   margin: 3rem auto 6rem;
@@ -55,5 +55,22 @@ form input[type=submit], button {
   body {
     background: #1A1A1A;
     color: #EEF6E6;
+  }
+}
+
+@media (min-width: 1024px) {
+  body > main {
+    min-width: 48rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+  body > main > * {
+    flex: 1;
+  }
+
+  body > main > aside {
+    flex: 0.25;
+    margin-left: 2rem;
   }
 }
