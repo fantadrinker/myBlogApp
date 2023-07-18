@@ -1,18 +1,11 @@
 import fs from 'fs'
-import { Client } from 'pg'
 import path from 'path'
 import matter from 'gray-matter'
 import remark from 'remark'
 import html from 'remark-html'
+import { pgClient } from '../../../lib/database'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
-const client = new Client({
-  user: process.env.PG_USER,
-  host: process.env.PG_HOST,
-  database: process.env.PG_DATABASE,
-  password: process.env.PG_PASSWORD,
-  port: process.env.PG_PORT,
-})
 
 export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`)
@@ -56,14 +49,11 @@ export function getAllPostIds() {
 }
 
 export async function getAllComments(id) {
-  await client.connect()
   let res = []
   try {
-    res = (await client.query('SELECT text, email FROM comments WHERE post_id = $1', [id])).rows
+    res = (await pgClient.query('SELECT text, email FROM comments WHERE post_id = $1', [id])).rows
   } catch (err) {
     console.log("error fetching comments", err)
-  } finally {
-    await client.end()
   }
   console.log('debug, res', res)
   return res;
