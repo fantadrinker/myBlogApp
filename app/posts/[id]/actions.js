@@ -1,10 +1,18 @@
 import fs from 'fs'
+import { Client } from 'pg'
 import path from 'path'
 import matter from 'gray-matter'
 import remark from 'remark'
 import html from 'remark-html'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
+const client = new Client({
+  user: process.env.PG_USER,
+  host: process.env.PG_HOST,
+  database: process.env.PG_DATABASE,
+  password: process.env.PG_PASSWORD,
+  port: process.env.PG_PORT,
+})
 
 export async function getPostData(id) {
   const fullPath = path.join(postsDirectory, `${id}.md`)
@@ -17,8 +25,8 @@ export async function getPostData(id) {
   } = matter(fileContents)
 
   const processedContent = await remark()
-      .use(html)
-      .process(content)
+    .use(html)
+    .process(content)
   const contentHtml = processedContent.toString()
 
   const {
@@ -31,7 +39,7 @@ export async function getPostData(id) {
   return {
     id,
     contentHtml,
-    images: images?.map(url => 
+    images: images?.map(url =>
       `${process.env.S3_IMAGES_BASE_URL}${url}`
     ),
     title,
@@ -48,5 +56,15 @@ export function getAllPostIds() {
 }
 
 export async function getAllComments(id) {
-  return []
+  await client.connect()
+  let res = []
+  try {
+    res = (await client.query('SELECT text, email FROM comments WHERE post_id = $1', [id])).rows
+  } catch (err) {
+    console.log("error fetching comments", err)
+  } finally {
+    await client.end()
+  }
+  console.log('debug, res', res)
+  return res;
 }

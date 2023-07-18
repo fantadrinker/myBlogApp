@@ -1,7 +1,7 @@
 import Date from '../../../components/date'
 import utilStyles from '../../../styles/utils.module.css'
 import styles from './page.module.css'
-import { getAllPostIds, getPostData, getAllComments  } from './actions'
+import { getAllPostIds, getPostData, getAllComments } from './actions'
 import ImageGallery from '../../../components/ImageGallery'
 import { isEmpty } from 'ramda'
 import PostCommentForm from '../../../components/PostCommentForm'
@@ -29,7 +29,10 @@ export default async function Post({ params }) {
           <Date dateString={postData.date} />
         </div>
       </article>
-      <div className={styles.fmtblk} dangerouslySetInnerHTML={{__html: postData.contentHtml }} />
+      <div
+        className={styles.fmtblk}
+        dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+      />
     </section>
     <section id="comments">
       <PostCommentForm postId={params.id} />
@@ -37,11 +40,11 @@ export default async function Post({ params }) {
         <h2>Comments</h2>
         <ul>
           {comments.map(({
-            comment,
-            author
-          }, index) => comment && author && (
+            text,
+            email
+          }, index) => text && email && (
             <li key={`comment_${index}`} className="pt-2">
-              <p>{comment} <span className="float-right text-sm">- {author}</span></p>
+              <p>{text} <span className="float-right text-sm">- {email}</span></p>
             </li>
           ))}
         </ul>
