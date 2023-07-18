@@ -38,6 +38,14 @@ describe('post page', () => {
       cy.url().should('not.contain', '/posts')
     })
 
+    it('should contain a comment section', () => {
+      cy
+        .get('main')
+        .get('section[data-cy="comments-section"]')
+        .should('exist')
+
+    })
+
   })
 
 })

@@ -34,7 +34,7 @@ export default async function Post({ params }) {
         dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
       />
     </section>
-    <section id="comments">
+    <section id="comments" data-cy="comments-section">
       <PostCommentForm postId={params.id} />
       {!isEmpty(comments) && (<>
         <h2>Comments</h2>
