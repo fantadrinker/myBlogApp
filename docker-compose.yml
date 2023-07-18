@@ -1,0 +1,27 @@
+services:
+  blog-app:
+    image: node:18-alpine
+    command: sh -c "npm install && npm run dev-lite"
+    ports:
+      - 127.0.0.1:3000:3000
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      PG_HOST: pgdb
+      PG_USER: postgres
+      PG_PASSWORD: password
+      PG_DATABASE: comments
+      PG_PORT: 5432
+  pgdb:
+    image: postgres:15
+    volumes:
+      - pg-data:/opt/homebrew/var/postgresql@15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: comments
+
+volumes:
+  pg-data:
+
