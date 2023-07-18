@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import remark from 'remark'
 import html from 'remark-html'
+import { pgClient } from '../../../lib/database'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -17,8 +18,8 @@ export async function getPostData(id) {
   } = matter(fileContents)
 
   const processedContent = await remark()
-      .use(html)
-      .process(content)
+    .use(html)
+    .process(content)
   const contentHtml = processedContent.toString()
 
   const {
@@ -31,7 +32,7 @@ export async function getPostData(id) {
   return {
     id,
     contentHtml,
-    images: images?.map(url => 
+    images: images?.map(url =>
       `${process.env.S3_IMAGES_BASE_URL}${url}`
     ),
     title,
@@ -48,5 +49,12 @@ export function getAllPostIds() {
 }
 
 export async function getAllComments(id) {
-  return []
+  let res = []
+  try {
+    res = (await pgClient.query('SELECT text, email FROM comments WHERE post_id = $1', [id])).rows
+  } catch (err) {
+    console.log("error fetching comments", err)
+  }
+  console.log('debug, res', res)
+  return res;
 }
