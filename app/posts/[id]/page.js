@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
 export default async function Post({ params }) {
   const postData = await getPostData(params.id)
   const comments = await getAllComments(params.id)
-
+  console.log(comments)
   return (<>
     <section id="post">
       <article>
