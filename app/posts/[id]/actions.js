@@ -3,7 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import remark from 'remark'
 import html from 'remark-html'
-import { pgClient } from '../../../lib/database'
+import { getComments } from '../../../lib/database'
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
@@ -51,7 +51,7 @@ export function getAllPostIds() {
 export async function getAllComments(id) {
   let res = []
   try {
-    res = (await pgClient.query('SELECT text, email FROM comments WHERE post_id = $1', [id])).rows
+    res = await getComments(id)
   } catch (err) {
     console.log("error fetching comments", err)
   }
