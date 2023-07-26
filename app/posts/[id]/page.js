@@ -4,7 +4,6 @@ import styles from './page.module.css'
 import { getAllPostIds, getPostData, getAllComments } from './actions'
 import ImageGallery from '../../../components/ImageGallery'
 import { isEmpty } from 'ramda'
-import PostCommentForm from '../../../components/PostCommentForm'
 
 export async function generateStaticPaths() {
   return getAllPostIds()
@@ -19,7 +18,6 @@ export async function generateMetadata({ params }) {
 export default async function Post({ params }) {
   const postData = await getPostData(params.id)
   const comments = await getAllComments(params.id)
-  console.log(comments)
   return (<>
     <section id="post">
       <article>
@@ -35,7 +33,6 @@ export default async function Post({ params }) {
       />
     </section>
     <section id="comments" data-cy="comments-section">
-      <PostCommentForm postId={params.id} />
       {!isEmpty(comments) && (<>
         <h2>Comments</h2>
         <ul>

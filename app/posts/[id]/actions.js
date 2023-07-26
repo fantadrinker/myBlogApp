@@ -56,5 +56,13 @@ export async function getAllComments(id) {
     console.log("error fetching comments", err)
   }
   console.log('debug, res', res)
-  return res;
+  return res.map(({
+    comment,
+    email,
+    created
+  }) => ({
+    text: comment,
+    email,
+    created
+  }));
 }
