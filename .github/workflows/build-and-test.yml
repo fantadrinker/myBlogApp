@@ -21,6 +21,10 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           start: npm run dev-lite
+        env:
+          CYPRESS_AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          CYPRESS_AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          CYPRESS_DYNAMODB_TABLE_NAME: ${{ env.DYNAMODB_TABLE_NAME }}
   build:
     runs-on: ubuntu-latest
     environment: build-test
