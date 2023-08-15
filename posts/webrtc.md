@@ -1,4 +1,9 @@
+---
+title: 'webrtc app'
 
+date: '2023-08-01'
+
+---
 
 Today I debugged my webrtc chat app, I had an issue of remote peer not connecting when they are on different network (one on wifi, the other on 
 cellular. Naturally, I suspected the turn server setup is not good. So I spun up an ec2 instance on AWS and configured a CoTURN server.
