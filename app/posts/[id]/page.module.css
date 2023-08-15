@@ -4,9 +4,12 @@
 
 .fmtblk p,
 .fmtblk h2,
+.fmtblk h3,
 .fmtblk ol {
   margin: revert;
   padding: revert;
+  font-size: revert;
+  font-weight: revert;
 }
 
 .fmtblk pre {
