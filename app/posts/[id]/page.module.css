@@ -23,6 +23,6 @@
 
 @media (prefers-color-scheme: dark) {
   .fmtblk pre {
-    background-color: black;
+    background-color: #282a36;
   }
 }
