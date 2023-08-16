@@ -4,9 +4,12 @@
 
 .fmtblk p,
 .fmtblk h2,
+.fmtblk h3,
 .fmtblk ol {
   margin: revert;
   padding: revert;
+  font-size: revert;
+  font-weight: revert;
 }
 
 .fmtblk pre {
@@ -20,6 +23,6 @@
 
 @media (prefers-color-scheme: dark) {
   .fmtblk pre {
-    background-color: black;
+    background-color: #282a36;
   }
 }
