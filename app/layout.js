@@ -4,6 +4,8 @@ import { SideBar } from '../components/SideBar'
 import '../styles/global.css'
 import { Roboto_Slab } from 'next/font/google'
 
+const showSidebar = false
+
 const roboto = Roboto_Slab({
     weights: [400, 700],
     subsets: ['latin']
@@ -34,9 +36,8 @@ export default function RootLayout({ children }) {
               {children}
               <Footer />
             </main>
-            <aside>
-              <SideBar />
-            </aside>
+            {showSidebar && <aside><SideBar />
+            </aside>}
           </main>
         </body>
       </html>
