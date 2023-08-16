@@ -18,6 +18,10 @@ body > main {
   margin: 3rem auto 6rem;
 }
 
+body > main > main {
+  max-width: 40rem;
+}
+
 * {
   box-sizing: border-box;
 }
