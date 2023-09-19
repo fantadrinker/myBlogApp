@@ -1,5 +1,19 @@
 This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 
+## Build
+
+This project uses `yarn` to manage its dependencies.
+
+After cloning this repo, run 
+
+    yarn
+
+to install dependencies, then run
+    
+    yarn dev-lite
+
+to host the project locally
+
 ## Testing
 
 run `npm run e2etest` after `npm install` for running e2e testing suites for cypress
