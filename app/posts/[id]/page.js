@@ -3,6 +3,7 @@ import utilStyles from '../../../styles/utils.module.css'
 import styles from './page.module.css'
 import { getAllPostIds, getPostData, getAllComments } from './actions'
 import ImageGallery from '../../../components/ImageGallery'
+import ImageCarousel from '../../../components/ImageCarousel'
 import { isEmpty } from 'ramda'
 
 export async function generateStaticPaths() {
@@ -21,7 +22,7 @@ export default async function Post({ params }) {
   return (<>
     <section id="post">
       <article>
-        {postData.images && (<ImageGallery images={postData.images} />)}
+        {postData.images && (<ImageCarousel images={postData.images} />)}
         <h1 data-cy="blog-title" className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.lightText}>
           <Date dateString={postData.date} />

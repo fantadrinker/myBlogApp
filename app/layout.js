@@ -3,6 +3,8 @@ import Header from '../components/Header'
 import { SideBar } from '../components/SideBar'
 import '../styles/global.css'
 import { Roboto_Slab } from 'next/font/google'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const showSidebar = false
 
