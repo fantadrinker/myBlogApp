@@ -7,8 +7,5 @@ module.exports = {
         hostname: process.env.S3_IMAGES_HOSTNAME,
       }
     ]
-  },
-  experimental: {
-    appDir: true
   }
 }
