@@ -13,7 +13,7 @@
     "uploadImages": "./scripts/syncImages.sh"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "^3.370.0",
+    "@aws-sdk/client-dynamodb": "^3.624.0",
     "@aws-sdk/lib-dynamodb": "^3.370.0",
     "cross-env": "^7.0.3",
     "date-fns": "^2.22.1",
