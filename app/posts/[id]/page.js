@@ -10,14 +10,16 @@ export async function generateStaticPaths() {
 }
 
 export async function generateMetadata({ params }) {
+  const {id} = await params
   return {
-    title: (await getPostData(params.id)).title
+    title: (await getPostData(id)).title
   }
 }
 
 export default async function Post({ params }) {
-  const postData = await getPostData(params.id)
-  const comments = await getAllComments(params.id)
+  const {id} = await params
+  const postData = await getPostData(id)
+  const comments = await getAllComments(id)
   return (<>
     <section id="post">
       <article>
