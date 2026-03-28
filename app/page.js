@@ -27,6 +27,11 @@ export default function Home() {
         </ul>
       </section>
       <section data-cy="blogs" className="text-lg pt-0">
+				<button>
+					<Link href={`/create-post`}>
+						Create Post
+					</Link>
+				</button>
         <h2 className="text-xl my-4">Blogs</h2>
         <ul className="list-none p-0 m-0">
           {allPostsData.map(({id, date, title}) => (
